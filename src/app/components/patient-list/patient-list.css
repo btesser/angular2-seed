@@ -1,0 +1,23 @@
+.high-systolic, .high-diastolic {
+    background-color: goldenrod;
+}
+
+.high-systolic .systolic {
+    color: red;
+    font-weight: bold;
+}
+
+.high-diastolic .diastolic {
+    color: red;
+    font-weight: bold;
+}
+
+.sort-column {
+    color: navy;
+}
+.sort-column::after {
+    content: '⇑';
+}
+.sort-column.sort-inverse::after {
+    content: '⇓';
+}

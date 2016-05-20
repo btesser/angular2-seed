@@ -22,7 +22,7 @@ var webpackConfig = {
     loaders: [
       // .ts files for TypeScript
       { test: /\.ts$/, loader: 'awesome-typescript-loader' },
-
+      { test: /\.json$/, loader: 'json'}
     ]
   }
 

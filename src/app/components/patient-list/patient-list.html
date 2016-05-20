@@ -1,0 +1,63 @@
+<h3>Patient list</h3>
+<table>
+  <thead>
+    <tr>
+      <th 
+          [ngClass]="{'sort-column': sortProperty === 'fullName', 'sort-inverse': sortDirection === -1}"
+          (click)="sortBy('fullName')"
+      >
+        Name
+      </th>
+      <th
+          [ngClass]="{'sort-column': sortProperty === 'age', 'sort-inverse': sortDirection === -1}" 
+          (click)="sortBy('age')"
+      >
+        Age
+      </th>
+      <th
+         [ngClass]="{'sort-column': sortProperty === 'birthDate', 'sort-inverse': sortDirection === -1}"
+         (click)="sortBy('birthDate')"
+      >
+        Date of Birth
+      </th>
+      <th
+         [ngClass]="{'sort-column': sortProperty === 'email', 'sort-inverse': sortDirection === -1}"
+         (click)="sortBy('email')"
+      >
+        Email
+      </th>
+      <th
+         [ngClass]="{'sort-column': sortProperty === 'bloodPressure.systolic', 'sort-inverse': sortDirection === -1}"
+         (click)="sortBy('bloodPressure.systolic')"
+      >
+        Systolic
+      </th>
+      <th
+         [ngClass]="{'sort-column': sortProperty === 'bloodPressure.diastolic', 'sort-inverse': sortDirection === -1}"
+         (click)="sortBy('bloodPressure.diastolic')"
+      >
+        Diastolic
+      </th>
+      <th
+         [ngClass]="{'sort-column': sortProperty === 'bloodPressure.date', 'sort-inverse': sortDirection === -1}"
+         (click)="sortBy('bloodPressure.date')"
+      >
+        Blood Pressure Date
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr 
+        *ngFor="let patient of patients"
+        [ngClass]="{'high-systolic': patient.hasHighSystolic(), 'high-diastolic': patient.hasHighDiastolic()}"
+    >
+      <td>{{ patient.fullName }}</td>
+      <td>{{ patient.age }}</td>
+      <td>{{ patient.birthDate | date}}</td>
+      <td>{{ patient.email }}</td>
+      <td class="systolic">{{ patient.bloodPressure.systolic }}</td>
+      <td class="diastolic">{{ patient.bloodPressure.diastolic }}</td>
+      <td>{{ patient.bloodPressure.date }}</td>
+    </tr>
+  </tbody>
+</table>
